@@ -37,5 +37,5 @@ export async function GET(req: NextRequest) {
     }
 
     // Redirect to home with token in URL
-    return NextResponse.redirect(`/?token=${access_token}`);
+    return NextResponse.redirect(`https://mp-6-ten.vercel.app/?token=${access_token}`);
 }

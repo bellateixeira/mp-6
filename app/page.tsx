@@ -55,7 +55,7 @@ export default function Home() {
                 <h1 className="text-3xl font-bold mb-4">Hello, {user.name}</h1>
                 <img src={user.avatar_url} alt="avatar" className="w-28 h-28 rounded-full mb-4" />
                 <p className="text-lg"><strong>Username:</strong> {user.login}</p>
-                <p className="text-lg"><strong>Email:</strong> {user.email}</p>
+                <p className="text-lg"><strong>Email:</strong> {user.email || "Not available"}</p>
             </main>
         );
     }

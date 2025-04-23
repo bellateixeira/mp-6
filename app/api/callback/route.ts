@@ -4,9 +4,11 @@ import { NextRequest, NextResponse } from 'next/server';
 // Runs when GitHub redirects back with ?code=... in the URL
 export async function GET(req: NextRequest) {
     const code = req.nextUrl.searchParams.get("code"); // Extract the code from query params
+    console.log("Code received from GitHub:", code);
 
     if (!code) {
         // If no code is found, return an error response
+        console.error("Missing code parameter");
         return NextResponse.json({ error: "Missing code parameter" }, { status: 400 });
     }
 
@@ -26,6 +28,7 @@ export async function GET(req: NextRequest) {
     });
 
     const tokenData = await tokenRes.json(); // Parse response as JSON
+    console.log("GitHub token response:", tokenData);
     const access_token = tokenData.access_token;  // Get the token from response
 
     if (!access_token) {
